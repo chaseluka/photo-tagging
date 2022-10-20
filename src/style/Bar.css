@@ -1,0 +1,30 @@
+.bar {
+  background-color: #fff;
+  height: 60px;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 3px 5px rgba(240, 240, 240, 0.369);
+  position: sticky;
+  top: 0;
+}
+
+.bar,
+.characters {
+  display: flex;
+}
+
+.characters {
+  gap: 1vmax;
+}
+
+.timer {
+  font-size: 2.5vmax;
+}
+
+.bar img {
+  max-width: 50px;
+}
+
+.found {
+  opacity: 0.4;
+}
