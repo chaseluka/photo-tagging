@@ -3,7 +3,10 @@ import "../style/Feedback.css";
 
 const Feedback = (props) => {
   return (
-    <div className={`feedback-container ${props.didFind}`}>
+    <div
+      className={`feedback-container ${props.didFind}`}
+      data-testid="background"
+    >
       {(() => {
         if (props.didFind === "correct") {
           return <div className="feedback">Correct!</div>;
