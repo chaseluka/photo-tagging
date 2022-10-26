@@ -1,6 +1,6 @@
 .main {
+  overflow: visible;
   width: 100%;
-  position: relative;
 }
 
 #game-img {
