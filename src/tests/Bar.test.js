@@ -3,9 +3,9 @@ import Bar from "../components/Bar";
 import "@testing-library/jest-dom";
 
 const characters = [
-  { id: "foo", name: "Waldo", found: false },
-  { id: "bar", name: "Wenda", found: false },
-  { id: "baz", name: "Wizard", found: false },
+  { id: "foo", name: "waldo", found: false },
+  { id: "bar", name: "wenda", found: false },
+  { id: "baz", name: "wizard", found: false },
 ];
 
 describe("characters", () => {

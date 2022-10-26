@@ -13,7 +13,7 @@ const Marker = (props) => {
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dimensions]);
+  }, []);
 
   return (
     <div className="marker" style={positionMarker}>

@@ -8,8 +8,8 @@ const Dropdown = (props) => {
   const found = props.found;
 
   const positionDropdown = {
-    left: coords.e.nativeEvent.clientX - coords.dimensions.left + 8 + "px",
-    top: coords.e.nativeEvent.clientY - coords.dimensions.top + 70 + "px",
+    left: coords.e.nativeEvent.clientX - coords.dimensions.left + 20 + "px",
+    top: coords.e.nativeEvent.clientY - coords.dimensions.top + 80 + "px",
   };
 
   return (

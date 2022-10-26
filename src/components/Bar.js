@@ -12,14 +12,14 @@ const Bar = (props) => {
       chars.forEach((char) => {
         if (char.found === true) {
           const thisChar =
-            char.name === "Waldo"
+            char.name === "waldo"
               ? waldo
-              : char.name === "Wenda"
+              : char.name === "wenda"
               ? wenda
-              : char.name === "Wizard"
+              : char.name === "wizard"
               ? wizard
               : false;
-          thisChar.current.classList.add("opaque");
+          if (!!thisChar) thisChar.current.classList.add("opaque");
         }
       });
     }

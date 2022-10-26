@@ -7,6 +7,7 @@ import Dropdown from "./Dropdown";
 import uniqid from "uniqid";
 import Marker from "./Marker";
 import Feedback from "./Feedback";
+import Box from "./Box";
 
 const App = () => {
   const [dropDown, setDropDown] = useState(false);
@@ -147,6 +148,9 @@ const App = () => {
               found={isCharacterFound}
             />
           );
+      })()}
+      {(() => {
+        if (dropDown) return <Box coords={clickCoords} />;
       })()}
       {(() => {
         if (wizard !== null) {
