@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import useTimer from "../hooks/useTimer";
 import "../style/Bar.css";
 
 const Bar = (props) => {
@@ -6,6 +7,8 @@ const Bar = (props) => {
   const waldo = useRef(null);
   const wenda = useRef(null);
   const wizard = useRef(null);
+  const timer = useTimer();
+  const time = useRef(0);
 
   useEffect(() => {
     if (chars[0] !== null) {
@@ -25,9 +28,24 @@ const Bar = (props) => {
     }
   }, [chars]);
 
+  useEffect(() => {
+    timer.count();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const toStandard = (time) => {
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.ceil(time % 60);
+      if (seconds < 10) return `${minutes}:0${seconds}`;
+      return `${minutes}:${seconds}`;
+    };
+    time.current = toStandard(timer.timer);
+  }, [timer]);
+
   return (
     <div className="bar">
-      <div className="timer">00:00</div>
+      <div className="timer">{time.current}</div>
       <div className="characters">
         <div
           className="character-container"
