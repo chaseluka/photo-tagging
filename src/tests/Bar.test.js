@@ -1,6 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen /*within*/ } from "@testing-library/react";
 import Bar from "../components/Bar";
 import "@testing-library/jest-dom";
+//import { watch } from "graceful-fs";
+//import { act } from "react-dom/test-utils";
 
 const characters = [
   { id: "foo", name: "waldo", found: false },
@@ -24,4 +26,34 @@ describe("characters", () => {
     expect(waldo).toHaveClass("opaque");
     expect(wenda).not.toHaveClass("opaque");
   });
+});
+
+/*function waitForTimer(timer) {
+  setTimeout(() => {
+    expect(+timer.textContent).toBeGreaterThan(0);
+  }, 2000);
+}
+
+jest.useFakeTimers();*/
+
+describe("timer", () => {
+  it("displays correctly", () => {
+    render(<Bar characters={characters} />);
+    const timer = screen.getByTestId("timer");
+
+    expect(timer).toBeInTheDocument();
+    expect(+timer.textContent).not.toBeNaN();
+  });
+  /*it("counts up", () => {
+    act(() => {
+      render(<Bar characters={characters} />);
+    })
+    
+    const timer = screen.getByTestId("timer");
+
+    act(() => {})
+    waitForTimer(timer);
+
+    jest.runAllTimers();
+  });*/
 });

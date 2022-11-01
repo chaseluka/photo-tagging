@@ -4,11 +4,20 @@ import "../style/Bar.css";
 
 const Bar = (props) => {
   const chars = props.characters;
+
   const waldo = useRef(null);
   const wenda = useRef(null);
   const wizard = useRef(null);
   const timer = useTimer();
   const time = useRef(0);
+
+  useEffect(() => {
+    if (chars[2] !== null) {
+      if (chars[0].found && chars[1].found && chars[2].found) {
+        props.score(timer.timer);
+      }
+    }
+  });
 
   useEffect(() => {
     if (chars[0] !== null) {
@@ -45,7 +54,9 @@ const Bar = (props) => {
 
   return (
     <div className="bar">
-      <div className="timer">{time.current}</div>
+      <div className="timer" data-testid="timer">
+        {time.current}
+      </div>
       <div className="characters">
         <div
           className="character-container"
