@@ -1,10 +1,17 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Game from "../components/Game";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 describe("dropdown menu", () => {
   it("appears on image click", () => {
-    render(<Game />);
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Game />} />
+        </Routes>
+      </BrowserRouter>
+    );
     const image = screen.getByTestId("game");
 
     fireEvent.click(image);
@@ -12,7 +19,13 @@ describe("dropdown menu", () => {
   });
 
   it("does not display after being clicked twice", () => {
-    render(<Game />);
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Game />} />
+        </Routes>
+      </BrowserRouter>
+    );
     const image = screen.getByTestId("game");
 
     fireEvent.click(image);
